@@ -1,0 +1,65 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+#### EXercício Prolog 01
+considere a segunte base de fatos :
+</div>
+
+<div class="nb-cell program" data-background="true" name="p1">
+aluno(joao, calculo). 
+aluno(maria, calculo). 
+aluno(joel, lab2). 
+aluno(joel, estruturas). 
+
+frequenta(joao, unifei). 
+frequenta(maria, unifei). 
+frequenta(joel, ufmg). 
+
+professor(carlos, calculo). 
+professor(ana_paula, estruturas). 
+professor(pedro, lab2). 
+
+funcionario(pedro, ufmg). 
+funcionario(ana_paula, unifei). 
+funcionario(carlos, unifei).
+</div>
+
+<div class="nb-cell markdown" name="md2">
+Regras: 
+1 - Quem são os alunos do professor X?
+</div>
+
+<div class="nb-cell program" data-background="true" name="p2">
+aluno_de(Y,X) :- aluno(Y,Z), professor(X,Z) , frequenta(Y,W) ,  funcionario(X,W).
+</div>
+
+<div class="nb-cell query" name="q1">
+aluno_de(Y,carlos)
+</div>
+
+<div class="nb-cell markdown" name="md3">
+2 - Quem são as pessoas da universidade X?
+</div>
+
+<div class="nb-cell program" data-background="true" name="p3">
+esta_na(Y,X) :- frequenta(Y,X) ; funcionario(Y,X).
+</div>
+
+<div class="nb-cell query" name="q2">
+esta_na(Y,ufmg)
+</div>
+
+<div class="nb-cell markdown" name="md4">
+3 - Quem são colegas entre se? Professores entre professores e alunos entre alunos.
+</div>
+
+<div class="nb-cell program" data-background="true" name="p4">
+e_colega_de(X,Y) :- frequenta(X,Z), frequenta(Y,Z), not(X=Y).
+e_colega_de(X,Y) :- funcionario(X,Z),funcionario(Y,Z), not(X=Y).
+</div>
+
+<div class="nb-cell query" name="q3">
+e_colega_de(X,Y)
+</div>
+
+</div>
