@@ -55,6 +55,7 @@ pais(curacao,america,0.1).
 pais(granada,america,0.1). 
 pais(trindade_e_tobago,america,1). 
 pais(santa_lucia,america,0.1). 
+pais(coreia_do_norte,asia,26).
 
 
 
@@ -64,7 +65,6 @@ fronteira(portugal,espanha).
 fronteira(franca,espanha). 
 fronteira(franca,belgica). 
 fronteira(franca,brasil).
-fronteira(franca,guiana).
 fronteira(franca,suriname). 
 fronteira(belgica,alemanha). 
 fronteira(belgica,holanda). 
@@ -82,7 +82,23 @@ fronteira(brasil,guiana).
 fronteira(argentina,bolivia). 
 fronteira(argentina,uruguai). 
 fronteira(argentina,chile). 
-fronteira(argentina,paraguai). 
+fronteira(argentina,paraguai).
+fronteira(guatemala,belize). 
+fronteira(guatemala,mexico). 
+fronteira(guatemala,honduras). 
+fronteira(guatemala,el_salvador). 
+fronteira(honduras,nicaragua). 
+fronteira(nicaragua,costa_rica). 
+fronteira(costa_rica,panama). 
+fronteira(panama,colombia). 
+fronteira(bolivia,paraguai).
+fronteira(bolivia,chile).
+fronteira(peru,brasil). 
+fronteira(peru,equador). 
+fronteira(peru,colombia).
+fronteira(venezuela,guiana).
+fronteira(peru,chile). 
+fronteira(coreia_do_norte,china). 
 
 juntos(Xpais,Ypais) :- fronteira(Xpais,Ypais);fronteira(Ypais,Xpais). 
 paises_continente(Paises,Continente) :- findall(Pais,pais(Pais,Continente,_),Paises).
